@@ -1,6 +1,9 @@
-#!/usr/bin/env perl
 use Mojolicious::Lite;
+use Plack::Builder;
 
 get '/' => sub { shift->render(text => 'Hello World!') };
 
-app->start;
+builder {
+  enable 'Deflater';
+  app->start;
+};
